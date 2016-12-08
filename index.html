@@ -1,0 +1,3415 @@
+
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html>
+<head>
+  <meta http-equiv='X-UA-Compatible' content='IE=EmulateIE7' />
+  <title>GISIN - GISIN Protocol Specification</title>
+  <meta name='title' content='GISIN Protocol Specification - http://www.niiss.org'>
+  <meta name='Description' content='Global Invasive Species Information Network'>
+  <meta name='keywords' content='
+  invasive species,  invasives,  invasive exotics,  plants,  invasion, 
+      invasive exotic,  invaders,  alien species,  aliens,  exotic species, 
+      exotics,  exotic plants,  exotic animals,  exotic invaders,  non-native, 
+      non-native plants,  non-native animals,  introduced,  introduced plants,  introduced species, 
+      geographic information systems,  online mapping application,  invasive maps,  models,  predictive modeling, 
+      nonindigenous,  non-indigenous,  citizen science,  non indigenous,  non-indigenous species, 
+      non-indigenous animals,  non-indigenous plants,  microbes,  viruses,  biodiversity, 
+      US,  government,  agencies,  inter-agency,  non-government, 
+      federal,  vectors,  pathways,  species profiles,  databases, 
+      spatial modeling,  education,  community action,  economic impacts,  management, 
+      control,  prevention,  biological control,  monitoring,  monitor, 
+      habitat,  ecological,  ecology,  research,  global, 
+      regional,  state,  local,  U.S., '>
+  <meta name='author' content='International Biological Information System (IBIS) and the National Institute of Invasive Species Science (NIISS)'>
+  <meta name='Reply-to' content='webmaster@niiss.org'>
+  <link rel='stylesheet' href='/cwis438/stylesheets/ibis-main.css' type='text/css'>
+  <link rel='shortcut icon' type='image/x-icon' href='/CCEP/Images/icon.ico'>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+  <script type='text/javascript' src='/CCEP/js/CCEP.js'></script>
+  <SCRIPT type='text/javascript' LANGUAGE='javascript' SRC='/cwis438/includes/FormUtil.js'></SCRIPT>
+  <link rel='stylesheet' href='/cwis438/StyleSheets/58.css' type='text/css'>
+  <link rel='stylesheet' href='/cwis438/stylesheets/GISIN.css' type='text/css'>
+</head>
+<body>
+<div id='bgTopDiv'> <table id='TopLoginTable' width='90%' align='center' cellpadding='0' cellspacing='0'>
+    <tr>
+      <td id='TopLogin' colspan='2' nowrap>
+        <div style='float:right;'>Welcome guest&nbsp;<a href='/cwis438/UserManagement/Login.php?WebSiteID=4&CallingPage=/cwis438/UserManagement/UserProfile.php' id='TopLoginLink'>
+Login
+</a>&nbsp;&nbsp;&nbsp;
+ | <a href='/cwis438/UserManagement/UserProfile.php?WebSiteID=4' id='TopLoginLink'>
+My Profile</a>
+ | December 8th 2016</div>
+      </td>
+    </tr>
+  </table>
+  <table id='MainTable' width='90%' align='center' cellpadding='0' cellspacing='0'>
+    <tr>
+      <td id='Banner' colspan='2' background='/cwis438/websites/GISINDirectory/Images/Banner_Background.gif' nowrap style='white-space:nowrap;'>
+<div style='width:100%;'>       <img src='/cwis438/websites/GISINDirectory/Images/Banner_Logo.gif' border='0' align='left' alt='GISIN' title='GISIN'>
+        <img src='/cwis438/websites/GISINDirectory/Images/Banner_Left.gif' border='0' align='left' alt='GISIN' title='GISIN'>
+        <img src='/cwis438/websites/GISINDirectory/Images/Banner_Right.gif' border='0' align='right' alt='GISIN' title='GISIN'>
+      <div id='SearchContent'><div id='google_translate_element'></div><script>function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en' },'google_translate_element');}</script><script src='http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script></div>
+</div>      </td>
+    </tr>
+    <tr>
+      <td id='LeftNavigation' width='130' style='width:130px;' align='left' valign='top'>
+<div id='LeftNavigation_Container' style='display:block; width:130px;'>       <div id='LeftNavigation_MajorItem'><a href='/DH.php?WC=/WS/GISIN/GISINDirectory/home_new.html&WebSiteID=4' id='LeftNavigation_MajorLink'>Home</a></div>
+        <div id='LeftNavigation_MajorItem'><a href='/DH.php?WC=/WS/GISIN/Directory.html&WebSiteID=4' id='LeftNavigation_MajorLink'>Directory</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/Websites/GISINDirectory/DatabaseDirectory_Table.php?WebSiteID=4' id='LeftNavigation_MinorLink'>GISIN List</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/websites/GISINDirectory/Project_Table.php?WebSiteID=4' id='LeftNavigation_MinorLink'>Data providers</a></div>
+        <div id='LeftNavigation_MajorItem'><a href='/DH.php?WC=/WS/GISIN/BrowseInformation.html&WebSiteID=4' id='LeftNavigation_MajorLink'>Browse Information</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/Websites/GISINDirectory/SpeciesStatus_TopInvasives.php?WebSiteID=4' id='LeftNavigation_MinorLink'>Top Invasives</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/Websites/GISINDirectory/Country_List.php?WebSiteID=4' id='LeftNavigation_MinorLink'>By Country</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/Websites/GISINDirectory/GISIN_ScientificName_List.php?WebSiteID=4' id='LeftNavigation_MinorLink'>By Species</a></div>
+        <div id='LeftNavigation_MajorItem'><a href='/cwis438/websites/GISINDirectory/Search.php?WebSiteID=4' id='LeftNavigation_MajorLink'>Search</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/websites/GISINDirectory/SpeciesStatus_Result.php?WebSiteID=4' id='LeftNavigation_MinorLink'>Species Status</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/websites/GISINDirectory/Occurrence_Result.php?Model=1&WebSiteID=4' id='LeftNavigation_MinorLink'>Occurrences</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/websites/GISINDirectory/SpeciesResource_Result.php?Model=2&WebSiteID=4' id='LeftNavigation_MinorLink'>Species URLs</a></div>
+        <div id='LeftNavigation_MajorItem'><a href='/DH.php?WC=/WS/GISIN/GISINDirectory/GetData.html&WebSiteID=4' id='LeftNavigation_MajorLink'>Get Data</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/DH.php?WC=/WS/GISIN/GISINDirectory/Download_Files.html&WebSiteID=4' id='LeftNavigation_MinorLink'>Download Files</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/DH.php?WC=/WS/GISIN/GISINDirectory/WebservicesForConsumers.html&WebSiteID=4' id='LeftNavigation_MinorLink'>Web Services</a></div>
+        <div id='LeftNavigation_MajorItem'><a href='/DH.php?WC=/WS/GISIN/GISINDirectory/GettingStarted.html&WebSiteID=4' id='LeftNavigation_MajorLink'>Provide Data</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/websites/GISINDirectory/Tech/GUID_List.php?WebSiteID=4' id='LeftNavigation_MinorLink'>GUIDs</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/Websites/GISINDirectory/Contribute/UploadedGISINData_List.php?WebSiteID=4' id='LeftNavigation_MinorLink'>File Uploads</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/websites/GISINDirectory/Tech/Protocol_Home.php?WebSiteID=4' id='LeftNavigation_MinorLink'>Protocol</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/websites/GISINDirectory/tech/Home.php?WebSiteID=4' id='LeftNavigation_MinorLink'>Technical</a></div>
+        <div id='LeftNavigation_MajorItem'><a href='/cwis438/websites/GISINDirectory/Contribute/GettingStarted.php?WebSiteID=4' id='LeftNavigation_MajorLink'>Getting Started</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/DH.php?WC=/WS/GISIN/GISINDirectory/Tutorials.html&WebSiteID=4' id='LeftNavigation_MinorLink'>Tutorials</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/DH.php?WC=/WS/GISIN/faq.html&WebSiteID=4' id='LeftNavigation_MinorLink'>FAQ</a></div>
+        <div id='LeftNavigation_MajorItem'><a href='/DH.php?WC=/WS/GISIN/about.html&WebSiteID=4' id='LeftNavigation_MajorLink'>About</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/DH.php?WC=/WS/GISIN/contact.html&WebSiteID=4' id='LeftNavigation_MinorLink'>Contact Us</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/DH.php?WC=/WS/GISIN/NewsEvents.html&WebSiteID=4' id='LeftNavigation_MinorLink'>News & Events</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/DH.php?WC=/WS/GISIN/pubs.html&WebSiteID=4' id='LeftNavigation_MinorLink'>Publications</a></div>
+        <br>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/UserManagement/Login.php?CallingPage=/cwis438/UserManagement/UserProfile.php&WebSiteID=4' id='LeftNavigation_MinorLink'>Login</a></div>
+        <div id='LeftNavigation_MinorItem'><a href='/cwis438/UserManagement/PersonRegister.php?WebSiteID=4' id='LeftNavigation_MinorLink'>Register</a></div>
+        <div><img src='/cwis438/Images/TransparentSpacer.gif' width='130' height='100%'></img></div>
+      </div>
+      <br>
+      </td>
+      <td id='BodyText' width='100%' style='width:100%px;' valign='top'>
+<NOSCRIPT>
+<br><center><font color='red'>Sorry, this web site requires javascript to run.  Please <a href='/DH.php?WC=/cwis438/UserManagement/JavaScript_Enable.html'>enable</a> javascript in your browser</font></center><p>
+</NOSCRIPT>
+
+<h1>GISIN Protocol Specification</h1>
+
+<h4>Version: 2.0</h4>
+<h4>Last  Update: June 15th, 2008</h4>
+
+<h2>1. Introduction</h2>
+<p>Every organization tends to collect data in a unique way.  
+  This document defines the protocol that GISIN users to transfer data between organizations in a standard way. 
+  For information on why the specification includes the features it does, please see the <a href='http://ibis-live1.nrel.colostate.edu/DH.php?WebSiteID=4&WC=/WS/GISIN/GISINDirectory/Tech/Documentation/Requirements.html'>Requirements Specification</a>.</p>
+
+<p>This document is written for those who wish to provide data to GISIN through file upload or a web service
+  and assumes you are familiarly with the 
+    <a href="http://www.gisin.org">Global Invasive Species Information Network (GISIN)</a>. 
+  The protocol specification described here has borrowed from other specifications wherever possible. 
+  See the <a href='http://wiki.tdwg.org/twiki/bin/view/DarwinCore/WebHome'>DarwinCore</a> documentation, 
+  the <a href='http://www.opengeospatial.org/standards'>OpenGIS</a>
+  <a href='http://www.opengeospatial.org/standards/wms'>Web Map Service</a> (WMS), and 
+  <a href='http://www.opengeospatial.org/standards/gml'>Geography Markup Language</a> (GML) for related topics.
+</p>
+<p>Note: The documentation on web services has been moved to the new<a href="WebServices.php"> Web Service </a>page.</p>
+
+<h3>1.1 Acknowledgements</h3>
+<p>A large number of individuals and organizations helped with the initial idea, content, and reviews of this protocol. They include; Jim Graham and Annie Simpson for coordinating and documenting the effort, Jerry Cooper, Bob Morris and Michael Browne for original work on the IASPS documentation which was a starting point for this document; Greg Ruiz and Jim Carlton for their Framework for Vector Science; Pam Fuller, Greg Ruiz, Brian Steves, and Shawn Dalton, for their development of NISBase as the ground breaking work on implementing invasive species data exchange; Michael Browne for facilitating the development of the status categories; Robert Hilliard, Kevin Thiele and Aaron Wilton for assistance in integrating vocabularies, Roger Hyam, Renato De Giovanni, and Markus Doring for help with implementing TAPIR; Donald Hobern and Hannu Saarenmaa for overall guidance, and Liz Sellers, Rob Emery, Jacob Asiedeau, Greg Newman, Catherine Jarnevich, Silvia Ziller, Andrea Grosse, Olivier de Munck, the staff of Invasive Species Specialist Group and the Global Invasive Species Database. </p>
+<p>If we have forgotten anyone please let us know!</p>
+<h2>2. Overview</h2>
+<p>The protocol has been designed with potential data providers in mind, including, a recognition that these 
+  organizations will tend to have simple, flat databases, with minimal technical resources to modify their 
+  databases to make them available as a web service. At the same time the protocol must perform at high 
+  speeds to allow for both a large number of providers and for providers with very large data sets. The protocol is used by both the file upload and web service capabilities of GISIN.</p>
+<h3>2.1 Data Models</h3>
+<p>Below are the &quot;Data Models&quot; or types of data that are supported by the protocol.</p>
+<p>Models: </p>
+<ol>
+  <li>SpeciesStatus - SpeciesStatus for a species, in a particular location, at a particular date. This includes data on origin, presence, distribution, abundance, rate of spread, whether the species is harmful. </li>
+  <li>SpeciesResourceURLs - URLs to web pages with profile information (also known as descriptions or fact-sheets) </li>
+  <li>Occurrences - Spatial information on species locations at specified dates. The location can be coordinates or location names. </li>
+  <li>Profile data - Data to profile specific species (i.e. life history, management, identification, etc.) </li>
+  <li>ImpactStatus - The types of impacts the organism is causing at a specific location </li>
+  <li>DispersalStatus - The methods of dispersal used by the organism. </li>
+  <li>ManagementStatus - The management activities engaged for an organism </li>
+  <li>Pictures - Digital images of species, impacts, and key characteristics (not defined yet) </li>
+</ol>
+
+<p>Note: We broke out ManagementStatus and ImpactStatus from SpeciesStatus when we realized there could be multiple records for ManagementStatus and/or ImpactStatus for a single SpeciesStatus record (i.e. a single species and location). This allows us to keep the Model records flat. </p>
+<h3>2.2 Concepts</h3>
+<p>The GISIN protocol was created as an extension to the DarwinCore standard. This standard refers to each of the types of data in a data model as a &quot;concept&quot;. Concepts can also be thought of as the labels over the columns in a table or spreadsheet file, or as the fields in a database.</p>
+<h2>3. Details</h2>
+<h4>3.1 Common Concepts </h4>
+
+<p>The following Concepts are used as fields to identify the Date, Taxonomy,  Location, and the Language for text results within the data for all Models. </p>
+              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Source
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Type
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Values
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=68&CallingPage=ProtocolSpecification.php'>citation</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Citation for the original source of the data.  This data must be maintained an relayed by providers that harvest data from other providers.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=13&CallingPage=ProtocolSpecification.php'>countryCode</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DarwinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  A two letter country code from the ISO specification.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=15&CallingPage=ProtocolSpecification.php'>county</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DarwinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.3'>Protocol Specification on Locations</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=11&CallingPage=ProtocolSpecification.php'>endValidDate</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Date
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.1'>Protocol Specification on Dates</a>.
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  This is the last day that the record is valid for in the format YYYY-MM-DD.  
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=107&CallingPage=ProtocolSpecification.php'>globalUniqueIdentifier</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Should be of the form: 
+                  [Authority]/guid/[InstitutionCode]/[CollectionCode]/[CatalogNumber]. The authority should be a recognized GUID authority. The authority will typically provide the InstitutionCode and the CollectionCode. The provider can then determine a CatalogNumber that uniquely identifies each record. If you use GISIN as the authority, please use the InstitutionCode and CollectionCode provided. GISIN GUIDs have the form: gisin.org/guid/[InstitutionCode]/[CollectionCode]/[CatalogNumber].
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  A globally unique identifier (GUID) for the record that needs to be resolvable and persistent. In other words, only GUIDs provided by a GUID authority should be used, and they must be unique to a particular record. If a record is removed from a dataset, the GUID must not be reused with any other record, ever. Also, if a provider receives data from another provider, they should just use and pass on the original GUID (if provided). However, if the data is modified in some way, the provider should provide a new GUID and cite the original provider in the Citation concept.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=20&CallingPage=ProtocolSpecification.php'>kingdom</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DarwinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Monera, Protista, Fungi, Plantae, Animalia, Other, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Defines the Kingdom of interest
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=42&CallingPage=ProtocolSpecification.php'>language</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DublinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  The primary language of the data provided by the service. It is recommended to use codes defined by IANA, RFC 4646, 2 letter codes, no country
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=16&CallingPage=ProtocolSpecification.php'>localityName</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.3'>Protocol Specification on Locations</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=96&CallingPage=ProtocolSpecification.php'>localityType</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  State/Province, County, Postal code, Watershed, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Defines the type of info in the Locality concept (city, park, cemetery, refuge, protected area)
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=97&CallingPage=ProtocolSpecification.php'>locationStandard</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  USA_FIPS, USA_HUC, AR_PostalCode
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Defines the standard used by the provider to identify the location of the record (i.e. US_HUC, US_FIPS, AR_PostalCode, etc.)
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=98&CallingPage=ProtocolSpecification.php'>locationValue</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Value matching the code defined in the locality standard for the locality
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=105&CallingPage=ProtocolSpecification.php'>mechanism</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Mechanism of introduction or impact  to a new location.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=92&CallingPage=ProtocolSpecification.php'>memo</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  An unsearchable field for providers to add anything else they think is important
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=52&CallingPage=ProtocolSpecification.php'>modified</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DublinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Date
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.1'>Protocol Specification on Dates</a>.
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  This is the last date that the record changed on in the format YYYY-MM-DD.  This is used for harvesters to query only data that has changed.  If the provider does not have this information it should return the current date.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=19&CaCallingPage=ProtocolSpecification.php'>scientificName</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DarwinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Examples of scientific names include:<br>
+                  <ul>
+                  <li>Tamarix</li>
+                  <li>Tamarix ramossissima</li> 
+                  <li>Moerckia hibernica var. wilsoniana</li>
+                  <li>Epipenaeon ingens latifrons</li>
+                  <li>Symphyotrichum lanceolatum ssp. hesperium var. hesperium </li>
+                  </ul>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  ScientificName is the primary means of filtering by taxa. At least a Genus is required. Species, subspecies, and variety may be provided in standard taxonomic notation. Do not include author and date so that all species of the same taxa can be identified in a single query.  Kingdom is recommended to be included in all requests with ScientificName's to resolve the few conflicts where the same genus appears in more than one Kingdom. 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=10&CallingPage=ProtocolSpecification.php'>startValidDate</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Date
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.1'>Protocol Specification on Dates</a>.
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  This is the first day that the record is valid for in the format YYYY-MM-DD.  
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=14&CallingPage=ProtocolSpecification.php'>stateProvince</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DarwinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=69&CallingPage=ProtocolSpecification.php'>URL</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  A full URL starting with 'http://'
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  A URL pointing to a page containing the information being provided to GISIN with the specific record the URL is a part of.  This needs to be a human readable page.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=116&CallingPage=ProtocolSpecification.php'>validDatePrecision</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Unknown, Day, Month, Year
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+      <SCRIPT LANGUAGE="JavaScript">
+      
+        function DoNew(ModelID,CallingPage)
+          {
+            var CallingPage=escape("Concept_Table.php");
+            
+            window.location="Concept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+          }
+      
+        function DoNew_ModelToConcept(ModelID,CallingPage)
+          {
+          window.location="ModelToConcept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+            "&CallingPage="+CallingPage;
+          }
+      
+          function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
+        {
+          window.location="ModelToConcept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ModelToConceptID="+ModelToConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+          function DoEdit(ConceptID,CallingPage)
+        {
+          window.location="Concept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ConceptID="+ConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+        function DoDelete(ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete the concept?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=Delete"+
+              "&ConceptID="+ConceptID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+        function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=DeleteREL"+
+              "&ConceptID="+ConceptID+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+      </SCRIPT>
+      
+<p>Note: If a provider does not support a particular Concept it should simply not return that Concept as an element of the record. </p>
+<h5><a name='4.4.1.1'></a>3.1.1 Dates<a href="http://www.loc.gov/standards/iso639-2/"></a></h5>
+<p>Dates are represented as documented in International Standard ISO 8601. This format is YYYY-MM-DD where YYYY is the decimal year in the Gregorian calendar. See <a href='http://www.cl.cam.ac.uk/~mgk25/iso-time.html'>Markus's</a> web page for a quick summary. At least a year is required, month and day are preferred as well. </p>
+<p>The Modified is the last date that the record was changed. This will be used by data consumers of  if they cache data. If the provider does not maintain a DateLastModfiied in their database they should always return the current date.</p>
+<p>The StartValidDate and EndValidDate represent the range of when a &quot;status&quot; data Model is valid.  Data providers should return an empty element for the EndValidDate if the status is still current. </p>
+
+
+<h5><a name='4.4.1.2'></a>3.1.2 Taxa</h5>
+<p>ScientificName is the primary means of identifying a taxa. At least a Genus is required. Species, subspecies, variety, author, and date may be provided in standard taxonomic notation. Kingdom is recommended to be included in all requests with ScientificNames to resolve the few conflicts where the same genus appears in more than one Kingdom. </p>
+<p>Examples of scientific names include:</p>
+<ul>
+  <li><i>Tamarix</i></li>
+  <li><i>Tamarix ramossissima</i></li>
+  <li><em>Moerckia</em> <em>hibernica</em> var. <em>wilsoniana</em></li>
+  <li><em>Epipenaeon</em> <em>ingens</em> <em>latifrons</em></li>
+  <li><em>Symphyotrichum</em> <em>lanceolatum</em> ssp. <em>hesperium</em> var. <em>hesperium</em></li>
+</ul>
+<p>Note: We need to define how Taxonomic Concepts will be included. </p>
+
+
+<h5><a name='4.4.1.3'></a>3.1.3 Locations</h5>
+<p>Invasive species location data can be in one of three forms: 1) country codes with additional concepts, 2) standard location codes, and/or 3) 
+geographic coordinates. 
+</p>
+<p>Readers should recognize that certain providers will have only local names while others will have only geographic coordinates 
+(of a variety of types). Consumers may request just LocationNames, just Geographic coordinates, or both. 
+The data provider should provide all the information it has available that meets the requested content.</p>
+
+<h6><a name='4.4.1.3.1'></a>3.1.3.1 Location from Country Codes with Additional Concepts</h5>
+<p>
+International codes exist for countries and are available from the 
+<a href='http://www.iso.org/iso/country_codes/iso_3166_databases.htm'>ISO 3166</a> and can be specified with the CountryCode concept.
+  Once a country code is specified, a state/province should be specified with the StateProvince concept.
+  If approrpiate a county (which includes cantons) should then be specified with the County concept.
+  If available, the name of the local area can be specified with the LocalityName concept. A LocalityType should accompany a LocalityName
+  to ensure it is unique.
+  If names are not associated with a LanguageCode then they are assumed to be in the default language of the provider.
+</p>
+
+<table width="100%" border="1" cellpadding="2" cellspacing="0">
+  <tr>
+    <th>Locality Type</th>
+    <th>Synonyms</th>
+  </tr>
+  <tr>
+    <td>State</td>
+    <td>Province, commonwealth </td>
+  </tr>
+  <tr>
+    <td>County</td>
+    <td>Shire, canton </td>
+  </tr>
+  
+  <tr>
+    <td>WaterBody</td>
+    <td>Lake, stream, river, ocean, sea </td>
+  </tr>
+  <tr>
+    <td>Locality</td>
+    <td>City, town, burg, municipality  </td>
+  </tr>
+  <tr>
+    <td>Island</td>
+    <td>Isle</td>
+  </tr>
+</table>
+<p></p>
+
+<h6><a name='4.4.1.3.2'></a>3.1.3.2 Standard Location Codes</h5>
+<p>
+Another approach is to identify the location of the record with a known defined standard (i.e. US_HUC, US_FIPS, AR_PostalCode, etc.). 
+This is done by providing a LocationStandard and LocationCode.  Supported LocationStandards are listed below. 
+There can only be one location code per record.
+</p>
+
+<table width="100%" border="1" cellpadding="2" cellspacing="0">
+  <tr>
+    <th>Location Standard</th>
+    <th>Definitions</th>
+  </tr>
+  <tr>
+    <td>US_FIPSCode</td>
+    <td>Maintained for backward compatibility, replaced by ANSI (need more here).  See <a href='http://geonames.usgs.gov/domestic/download_data.htm'>Geographic Names Information System(GNIS) </a> and download the National data set.  The State FIPS codes are labeled 'STATE_NUMBERIC'.  County FIPS codes are a combination of the 'STATE_NUMERIC' and 'COUNTY_NUMERIC' fields.</td>
+  </tr>
+  <tr>
+    <td>US_HUC</td>
+    <td>See the USGS <a href='http://water.usgs.gov/GIS/huc.html'>Hydrologic Unit Maps</a> web site</td>
+  </tr>
+  
+  <tr>
+    <td>AR_PostalCode</td>
+    <td>(need reference)</td>
+  </tr>
+  <tr>
+    <td>GISIN_IslandGroups</td>
+    <td>(TDB)</td>
+  </tr>
+  <tr>
+    <td>GISIN_Islands</td>
+    <td>(TDB)</td>
+  </tr>
+  <tr>
+    <td>GISIN_FreshWaterBodies</td>
+    <td>(TDB)</td>
+  </tr>
+</table>
+
+<p>
+Please contact a member of the GISIN steering committee to have a new standard added.
+</p>
+
+<h6><a name='4.4.1.3.3'></a>3.1.3.3 Geographic Coordinates</h5>
+
+<p>
+A precise coordinate can be specified with the DecimalLatitude and DecimalLongitude concepts.  These values should be in decimal degrees.
+The accuracy of the coordinates should be provided with the HorizontalAccuracy concept and how the coordinates were created should be
+provided with the GeographicProtocol concept if this information is available.
+</p>
+
+<p>Filtering for geographic coordinates is only supported for geographic bounding boxes with the DecimalLatitudeMin, DecimalLatitudeMax,
+DecimalLongitudeMin, and DecimalLongitudeMax parameters.
+</p>
+
+<h5>3.1.4 Languages</h5>
+<p>Languages are specified with <a href="http://www.loc.gov/standards/iso639-2/"><strong>IS0 639-2</strong></a> codes. These are 3-letter codes. In some cases a bibliographic code and a terminology code is provided. In this case GISIN uses the terminology code. Some examples are below. </p>
+<ul>
+  <li>English: eng</li>
+  <li>French: fra </li>
+  <li>Spanish: spa </li>
+  <li>German: deu</li>
+  <li>Chinese: zho</li>
+  <li>Italian:  ita</li>
+  <li>Dutch: nld  </li>
+  <li>Portuguese: por
+    
+  <!--- Bio Status --->
+</li>
+</ul>
+<h5>3.1.5 Globally Unique Identifiers</h5>
+<p>Globally Unique Identifiers, or GUIDs, are a mechanism to uniquely identify data that is moved around the Internet. GUIDs are extremely important both to make sure we are not duplicating records and to make sure that the originators of data are identifiable. GUIDs are also a means to allow corrections to data to be updated and to have old data removed from a system.
+</p>
+
+<p>GISIN recommends GUIDs be attached to each record in the original source of the data. When this is not possible, providers should add a GUID and cite the original source in the Citation concept. If a provider changes the contents of a record that they do not own, they should create a new GUID and cite the original source in the Citation concept. Since GUIDs are used to identify a unique record, they should never be reused with a different record.
+</p>
+
+<p>GUIDs must also be traceable or resolvable. Any GUID must be able to be used to determine the original source of a record, typically by entering it into a web browser as a URL (in the case of GISIN GUIDs, with the addition of http://www.). GUIDs must also last for a very long time (indefinitely). This means that a "GUID Authority" must be used to provide the GUID. An authority is defined as an organization that has made a long-term commitment to providing a resolving functionality for GUIDs.</p>
+
+<p>There are a variety of formats for GUIDs. GISIN uses a GUID standard that is easy to read and resolve. The format appears as:
+</p>
+
+<pre>[Authority]/guid/[InsitutionCode]/[CollectionCode]/[CatalogNumber]</pre>
+
+<p>Where the values in brackets would be replaced with:</p>
+
+<ul>
+  <li>Authority - The authority that provides the resolving service for the GUID</li>
+  <li>InstitutionCode - Name of the institution providing the data (i.e. a specific university, county, national park, etc.)</li>
+  <li>CollectionCode - Uniquely identifies the collection within the institution</li>
+  <li>CatalogNumber - A unique string (can be letters and numbers) within the collection</li>
+</ul>
+
+<p>GISIN has volunteered to be a GUID authority so if you as a data provider do not have another authority to use, you can contact GISIN to obtain an InstitutionCode and CollectionCode(s) and then determine your own unique CatalogNumbers. The format for GUIDs from GISIN is:</p>
+
+<pre>gisin.org/guid/[InstitutionCode]/[CollectionCode]/[CatalogNumber]</pre>
+<h4>3.2 SpeciesStatus </h4>
+<p>The SpeciesStatus model contains information on the status of a species within a specific location, and within a specific date range. </p>
+<h5>3.2.1 SpeciesStatus Concepts </h5>
+<p>SpeciesStatuses are required to support the following general Concepts:</p>
+<ul>
+  <li> Taxon: At least a scientific name</li>
+  <li>Location: At least one code or name, coordinates do not apply to SpeciesStatus (coordinates would imply an Occurrence) </li>
+  <li>Modified </li>
+  <li>ValidDate</li>
+</ul>
+<p>SpeciesStatuses  support the following additional Concepts. Possible values for the Concepts are listed below this table. </p>
+
+              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Source
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Required
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Type
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Values
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=5&CallingPage=ProtocolSpecification.php'>abundance</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Dominant, Common, Rare, Zero, Unknown, Monoculture
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  How abundant the organism is 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=4&CallingPage=ProtocolSpecification.php'>distribution</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Widespread, Moderate, Localized, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Whether the species is limited to a local area or covers vast tracks of land or water 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=8&CallingPage=ProtocolSpecification.php'>harmful</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Yes
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Yes, No, Potentially, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Whether the organism is considered harmful.  Invasive Species should return 'Harmful=Yes' and 'Origin=Nonindigenous'.  More detailed 'harm' information is dealt with in the ImpactStatus Data Model.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=1&CallingPage=ProtocolSpecification.php'>origin</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Yes
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Indigenous, Exotic, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Whether the species is considered to be native to a particular location or not. 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=3&CallingPage=ProtocolSpecification.php'>persistence</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Persistent, Temporary, Transient, DiedOut, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  How successful the organism is at surviving and reproducing 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=2&CallingPage=ProtocolSpecification.php'>presence</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Yes
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Absent, SometimesPresent, Present, Unknown, Reported
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  There is supporting evidence to show the species is present within the valid date 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=93&CallingPage=ProtocolSpecification.php'>publicationDate</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Date
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.1'>Protocol Specification on Dates</a>.
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Date the record was published in the format YYYY-MM-DD
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=115&CallingPage=ProtocolSpecification.php'>publicationDatePrecision</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Unknown, Day, Month, Year
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Precision of the publication date
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=7&CallingPage=ProtocolSpecification.php'>rateOfSpread</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Rapid, Moderate, Slow, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  How quickly the range of the organism is expanding 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=9&CallingPage=ProtocolSpecification.php'>regulatoryListing</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Prohibited, Restricted, NotConsidered, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  The legal regulatory status of the organism 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=6&CallingPage=ProtocolSpecification.php'>trend</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Stable, Declining, Unknown, Expanding
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Whether the range of the organism is increasing or decreasing 
+                  </td>
+                </tr>
+              </table></div>
+      <SCRIPT LANGUAGE="JavaScript">
+      
+        function DoNew(ModelID,CallingPage)
+          {
+            var CallingPage=escape("Concept_Table.php");
+            
+            window.location="Concept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+          }
+      
+        function DoNew_ModelToConcept(ModelID,CallingPage)
+          {
+          window.location="ModelToConcept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+            "&CallingPage="+CallingPage;
+          }
+      
+          function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
+        {
+          window.location="ModelToConcept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ModelToConceptID="+ModelToConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+          function DoEdit(ConceptID,CallingPage)
+        {
+          window.location="Concept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ConceptID="+ConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+        function DoDelete(ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete the concept?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=Delete"+
+              "&ConceptID="+ConceptID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+        function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=DeleteREL"+
+              "&ConceptID="+ConceptID+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+      </SCRIPT>
+      <p><strong>abundance Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Common
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Common in the referenced location. Moderate abundance 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Dominant
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Numerically dominant in the referenced location. Depending on the nature of the referenced location, this information could be at the individual, population, community, ecosystem or landscape scale.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Monoculture
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Exists at a high level of abundance which has resulted in virtually no other species being present in the referenced location.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Rare
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Numerically rare in the referenced location. 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Zero
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Zero abundance means absent. It's ok to have parameters overlap (but not the values within a parameter). 
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>distribution Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Localized
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Occurs in only a few parts of the referenced location. 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Moderate
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Occurs in some but not all parts of the referenced location. 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Widespread
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Occurs in most of the referenced location. 
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>harmful Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  No
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Benign. Not harmful
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Potentially
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Has been known to be harmful elsewhere or displays tendencies which could become harmful.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Yes
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Any kind of harm has been identified. Could be environmental, social/economic or harmful to human or animal health.
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>origin Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Exotic
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  (Alien, foreign, exotic, introduced, non-native) Means a species, subspecies, or lower taxon occurring outside of its natural range (past or present) and dispersal potential (i.e. outside the range it occupies naturally or could not occupy without direct or indirect introduction or care by humans) and includes any part, gametes or propagule of such species that might survive and subsequently reproduce (IUCN 2000). Includes aboriginal introductions and archeozoa/archeophytes (early introductions of organisms into Europe by humans that are strongly integrated in European ecosystems) 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Indigenous
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Naturally distributed within the region of interest, with a long-term presence extending into the pre-historic record
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Includes 'Cryptogenic' i.e. a species which is neither demonstratively native nor introduced in a region because its origin/native range is unknown, and 'Uncertain' i.e. the native range is known but this occurrence lies somewhere between its known native and nonindigenous ranges. 
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>persistence Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  DiedOut
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Not surviving. Presumed extinct at the referenced location. 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Persistent
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Surviving and reproducing in perpetuity. Synonymous with 'naturalized'.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Temporary
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Surviving and reproducing for a limited period
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Transient
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Surviving but not reproducing (e.g., remnant species from old gardens). 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>presence Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Absent
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Known to be absent. This may be due to Eradication, Interception at border, Presumed extinct (see Persistence) or Recorded in error. These 'Reasons for absence' may become part of an expanded schema
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Present
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Known or reported to be present at the date of publication or last update of records. Please note that for aggregated data (e.g. a collection of historic reports), the date of publication or last update of records provides no indication of when the organism was present.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Reported
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Species has been reported, such as in the literature, to be present in an area
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  SometimesPresent
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Vagrant, migratory or an otherwise 'casual' presence
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>publicationDatePrecision Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Day
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Month
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Year
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>rateOfSpread Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Moderate
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Rapid
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Slow
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>regulatoryListing Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  NotConsidered
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Organism that has not yet been through a process to determine if it should be restricted or prohibited.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Prohibited
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Banned organism
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Restricted
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Organism with some regulatory restriction or control
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>trend Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Declining
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Biomass is decreasing
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Expanding
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Biomass is increasing
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Stable
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Zero, or close to zero, trend
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+
+
+
+<!--- SpeciesResourceURLs --->
+
+<h4>3.3 SpeciesResourceURLs </h4>
+ <h5>3.3.1 SpeciesResourceURL Concepts </h5>
+ <p>SpeciesResourceURLs are required to support the following general Concepts:</p>
+ <ul>
+   <li>Taxon: At least a scientific name</li>
+   <li>Modified </li>
+   <li>LanguageCode</li>
+ </ul>
+ <p>SpeciesResourceURL  support the following additional Concepts as fields: </p>
+ 
+              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Source
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Required
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Type
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Values
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=94&CallingPage=ProtocolSpecification.php'>resourceType</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Yes
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Profile, Expert list, Image, Video, Reference list, Identification key, Unknown, RiskAssessment
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  What type of information the record provides
+                  </td>
+                </tr>
+              </table></div>
+      <SCRIPT LANGUAGE="JavaScript">
+      
+        function DoNew(ModelID,CallingPage)
+          {
+            var CallingPage=escape("Concept_Table.php");
+            
+            window.location="Concept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+          }
+      
+        function DoNew_ModelToConcept(ModelID,CallingPage)
+          {
+          window.location="ModelToConcept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+            "&CallingPage="+CallingPage;
+          }
+      
+          function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
+        {
+          window.location="ModelToConcept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ModelToConceptID="+ModelToConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+          function DoEdit(ConceptID,CallingPage)
+        {
+          window.location="Concept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ConceptID="+ConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+        function DoDelete(ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete the concept?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=Delete"+
+              "&ConceptID="+ConceptID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+        function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=DeleteREL"+
+              "&ConceptID="+ConceptID+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+      </SCRIPT>
+      <p><strong>resourceType Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Expert list
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  List of experts to contact for information regarding a specific species
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Identification key
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Information to aid in identifiying an organism.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Image
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Image of a species
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Profile
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Information about a species like life history
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Reference list
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  List of references with inforamtion about a specific species
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  RiskAssessment
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  The resource is an assessement of risk for the species.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Video
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Video of a specie
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+
+<h4>3.4 Occurrences </h4>
+ <p>Occurrence data are especially important for modeling present and future distributions of species. The GISIN system utilized other TDWG standards in the management of occurrence information. </p>
+ <h5>3.4.1 Occurrence Concepts </h5>
+ <p>Occurrences are required to support the following general Concepts:</p>
+ <ul>
+   <li> Taxon: At least a scientific name</li>
+   <li>Location: At least one code or name, or coordinates</li>
+   <li>Modified </li>
+ </ul>
+ <p>Occurrences  support the following additional Concepts: </p>
+              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Source
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Required
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Type
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Values
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=95&CallingPage=ProtocolSpecification.php'>collectionDatePrecision</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Day, Month, Year, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Precision of the collection date concept (e.g., accurate to the day, to the month, or to the year)
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=113&CallingPage=ProtocolSpecification.php'>coordinatePrecision</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DarwinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Floating Point
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  0.0 to 1000000.0
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  A decimal representation of the precision of the coordinates given in the decimalLatitude and decimalLongitude.   Examples: '0.00001' (normal GPS limit for decimal degrees), '0.000278' (nearest second), '0.01667' (nearest minute), '1.0' (nearest degree). For discussion see http://code.google.com/p/darwincore/wiki/Location
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=75&CallingPage=ProtocolSpecification.php'>coordinateUncertaintyInMeters</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DarwinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Floating Point
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  0.0 to 1000000.0
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  As close an approximation to the standard deviation of the coordinates expressed in meters. 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=21&CallingPage=ProtocolSpecification.php'>decimalLatitude</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DarwinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Floating Point
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  -90.0 to 90.0
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=22&CallingPage=ProtocolSpecification.php'>decimalLongitude</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DarwinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Floating Point
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  -180.0 to 180.0
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=74&CallingPage=ProtocolSpecification.php'>endCollectionDate</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Date
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.1'>Protocol Specification on Dates</a>.
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Last date of collections in the format YYYY-MM-DD. Typically StartCollectionDate and EndCollectionDate will be the same.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=70&CallingPage=ProtocolSpecification.php'>geodeticDatum</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DarwinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  WGS84, HARN, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  The Datum used to collection the Latitude and Longitude coordinates 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=112&CallingPage=ProtocolSpecification.php'>georeferenceProtocol</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  DarwinCore
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Unknown, GPS, Map, Gazetteer, ConvertedFromOtherUnit, RemotelySensed, GIS Derived
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  How geographic coordinates were determined for an occurrence.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=73&CallingPage=ProtocolSpecification.php'>startCollectionDate</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Date
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.1'>Protocol Specification on Dates</a>.
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  First date when the occurrence data for the record was being collected in the format YYYY-MM-DD
+                  </td>
+                </tr>
+              </table></div>
+      <SCRIPT LANGUAGE="JavaScript">
+      
+        function DoNew(ModelID,CallingPage)
+          {
+            var CallingPage=escape("Concept_Table.php");
+            
+            window.location="Concept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+          }
+      
+        function DoNew_ModelToConcept(ModelID,CallingPage)
+          {
+          window.location="ModelToConcept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+            "&CallingPage="+CallingPage;
+          }
+      
+          function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
+        {
+          window.location="ModelToConcept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ModelToConceptID="+ModelToConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+          function DoEdit(ConceptID,CallingPage)
+        {
+          window.location="Concept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ConceptID="+ConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+        function DoDelete(ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete the concept?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=Delete"+
+              "&ConceptID="+ConceptID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+        function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=DeleteREL"+
+              "&ConceptID="+ConceptID+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+      </SCRIPT>
+      <p><strong>collectionDatePrecision Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Day
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Month
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Year
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>geodeticDatum Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  HARN
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  High Accuracy Reference Network
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  WGS84
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  World Geodetic System from 1984
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>georeferenceProtocol Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  ConvertedFromOtherUnit
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Gazetteer
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Coordinate derived from searching for a place in a database that matches place names with coordinates such as the Geographic Names Information System.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  GIS Derived
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Examples include centroid calculation for a state/province or county
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  GPS
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Coordinate from a Geographic Positioning System unit
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Map
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Derived from a physical map
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  RemotelySensed
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<h4>Datums</h4>
+ <p>The preferred datums are World Geodetic System 1984 (WGS84) or High Accuracy Reference Network (<strong>HARN</strong>) but   providers may have data in datums that are not global and may not have the facilities to convert them to a global datum. Ignoring the datum can cause errors of thousands of meters! We highly encourage providers to provide data in WGS84 or HARN and consumers should always check the datum or else filter to choose just the datums they accept. </p>
+
+
+
+
+<h4>3.5 ImpactStatus </h4>
+ <h5>3.5.1 ImpactStatus Concepts </h5>
+ <p>ImpactStatus represents the type of impact a species is having on a habitat. Multiple ImpactStatues should be provided for species that impact multiple habitats (i.e. marine and terrestrial). </p>
+ <p>ImpactStatuses are required to support the following general Concepts:</p>
+ <ul>
+   <li> Taxon: At least a scientific name</li>
+   <li>Location: At least one code or name, coordinates do not apply to SpeciesStatus</li>
+   <li>Modified </li>
+   <li>ValidDate</li>
+ </ul>
+ <p>ImpactStatuses  support the following additional Concepts: </p>
+
+              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Source
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Required
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Type
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Values
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=78&CallingPage=ProtocolSpecification.php'>biome</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Freshwater, Brackish, Marine, Terrestrial, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  The biome being impacted 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=106&CallingPage=ProtocolSpecification.php'>direction</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Yes
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Neutral, Positive, Negative, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Direction of the impact of the organism.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=79&CallingPage=ProtocolSpecification.php'>environment</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Natural, HumanModified, Artificial, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Type of environment being impacted
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=80&CallingPage=ProtocolSpecification.php'>target</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Yes
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Environment, HumanHealth, Economy, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Who/what the species is impacting 
+                  </td>
+                </tr>
+              </table></div>
+      <SCRIPT LANGUAGE="JavaScript">
+      
+        function DoNew(ModelID,CallingPage)
+          {
+            var CallingPage=escape("Concept_Table.php");
+            
+            window.location="Concept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+          }
+      
+        function DoNew_ModelToConcept(ModelID,CallingPage)
+          {
+          window.location="ModelToConcept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+            "&CallingPage="+CallingPage;
+          }
+      
+          function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
+        {
+          window.location="ModelToConcept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ModelToConceptID="+ModelToConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+          function DoEdit(ConceptID,CallingPage)
+        {
+          window.location="Concept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ConceptID="+ConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+        function DoDelete(ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete the concept?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=Delete"+
+              "&ConceptID="+ConceptID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+        function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=DeleteREL"+
+              "&ConceptID="+ConceptID+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+      </SCRIPT>
+      <p><strong>biome Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Brackish
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  A habitat with a mix of fresh and salt water, typically estuaries but also includes salt marshes and salt lakes 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Freshwater
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  A primarily freshwater habitat including streams, rivers, and freshwater lakes 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Marine
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  A primarily marine habitat including oceans, seas, and bays 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Terrestrial
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  An impact exhibited primarily on land. 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>direction Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Negative
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  The impact the organism is having on the target specified is negative.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Neutral
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  The impact the organism is having on the target specified is neutral.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Positive
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  The impact the organism is having on the target specified is positive.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>environment Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Artificial
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  HumanModified
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Includes urban environments as well as forestry, agriculture, horticulture, second growth 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Natural
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Few environments are pristine. Most conservation efforts are focused on natural or semi-natural environments.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>target Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Economy
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Includes livelihood, cultural, medicinal, amenity and social activities
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Environment
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Natural or semi-natural environments and/or the species they contain. Includes, changes to ecosystem functioning and composition, habitat availability, species interactions, hybridization, predation, competition etc.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  HumanHealth
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  In the future, expansion may be needed to distinguish between e.g. diseases and allergens.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+ 
+
+
+ <p>Note: we need more quantifiable terms here </p>
+
+<h4>3.6 DispersalStatus </h4>
+ <p>DispersalStatus represents the type of Dispersal a species is having on a habitat. Multiple DispersalStatuses should be provided for species that Dispersal multiple habitats (i.e. marine and terrestrial). </p>
+ <h5>3.6.1 DispersalStatus Concepts </h5>
+ <p>DispersalStatuses are required to support the following general Concepts:</p>
+ <ul>
+   <li> Taxon: At least a scientific name</li>
+   <li>Location: At least one code or name, coordinates do not apply to DispersalStatus. This location identifies the area for this dispersal event. A 'FromCountryCode' can be specified for the country of origin. </li>
+   <li>Modified </li>
+   <li>ValidDate</li>
+ </ul>
+ <p>DispersalStatuses  support the following additional Concepts: </p>
+ 
+              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Source
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Required
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Type
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Values
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=84&CallingPage=ProtocolSpecification.php'>dateOfIntroduction</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Date
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.1'>Protocol Specification on Dates</a>.
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  First known date of introduction in the format YYYY-MM-DD
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=114&CallingPage=ProtocolSpecification.php'>dateOfIntroductionPrecision</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Unknown, Day, Month, Year
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Precision of the date of introduction
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=86&CallingPage=ProtocolSpecification.php'>fromCountryCode</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.3'>Protocol Specification on Locations</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  The country from which the organism is dispersing.  The code is the two letter ISO codes (see countryCode concept).
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=103&CallingPage=ProtocolSpecification.php'>fromCounty</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.3'>Protocol Specification on Locations</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  County name the organism was introduced from to the new location.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=104&CallingPage=ProtocolSpecification.php'>fromLocalityName</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  See <a href='ProtocolSpecification.php#4.4.1.3'>Protocol Specification on Locations</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Locality name the organism was introduced from to the new location.  See localityName concept.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=109&CallingPage=ProtocolSpecification.php'>fromLocalityType</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Defines the type of information in the fromLocalityName concept (city, park, cemetery, refuge, protected area).  See localityType concept.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=110&CallingPage=ProtocolSpecification.php'>fromLocationStandard</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Defines the standard used by the provider to identify the location of the record (i.e. US_HUC, US_FIPS, AR_PostalCode, etc.) in the fromLocationValue concept field.  See locationStandard concept for more information.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=111&CallingPage=ProtocolSpecification.php'>fromLocationValue</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Value matching the code defined in the locality standard for the locality
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=102&CallingPage=ProtocolSpecification.php'>fromStateProvince</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  State name the organism was introduced from to the new location.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=101&CallingPage=ProtocolSpecification.php'>introducedBy</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Individual, Government, Private sector, International organization, Other, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  The general group believed responsible for the introduction.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=82&CallingPage=ProtocolSpecification.php'>mode</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Natural, Deliberate, Accidental, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  A high-level categorization of how the organism is dispersing 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=100&CallingPage=ProtocolSpecification.php'>movement</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  IntraRegionalMovement, InterRegionalMovement, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  The type of movement occuring in dispersal of the organism within the 'To' locatlity specified.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=87&CallingPage=ProtocolSpecification.php'>route</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  String
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  A textural description of the route the organism took from the FromCountryCode. If used, a LanguageCode must be specified. For example, this would be 'This species was brought over on a coal ship.'
+                  </td>
+                </tr>
+              </table></div>
+      <SCRIPT LANGUAGE="JavaScript">
+      
+        function DoNew(ModelID,CallingPage)
+          {
+            var CallingPage=escape("Concept_Table.php");
+            
+            window.location="Concept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+          }
+      
+        function DoNew_ModelToConcept(ModelID,CallingPage)
+          {
+          window.location="ModelToConcept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+            "&CallingPage="+CallingPage;
+          }
+      
+          function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
+        {
+          window.location="ModelToConcept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ModelToConceptID="+ModelToConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+          function DoEdit(ConceptID,CallingPage)
+        {
+          window.location="Concept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ConceptID="+ConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+        function DoDelete(ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete the concept?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=Delete"+
+              "&ConceptID="+ConceptID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+        function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=DeleteREL"+
+              "&ConceptID="+ConceptID+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+      </SCRIPT>
+      <p><strong>dateOfIntroductionPrecision Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Day
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Month
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Year
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>fromLocalityType Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>fromLocationStandard Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>introducedBy Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Government
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  A government is believed to be responsible for the introduction.  This could be a specific agency within the government, most military, and state run universities.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Individual
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  A single individual is believed to have caused the introduction (e.g., someone released their pet into the wild).
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  International organization
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  This would include any organization that exists across international boundaries - such as the GISIN.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Other
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  This would include non-governmental organizations that are not for profit (e.g., the nature conservancy), pirates, and churches among other groups.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Private sector
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  A for profit group is responsible for introduction.  Private academia would be included in this category.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>mode Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Accidental
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unintentional dispersal in association with human activity
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Deliberate
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Dispersal resulting from intentional human activity
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Natural
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Dispersal by an organisms' natural mechanisms and strategies without direct or indirect human intervention
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>movement Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  InterRegionalMovement
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  The organism is dispersing between the regions specified as the 'from' and 'to' localities.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  IntraRegionalMovement
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  The organism is dispersing within the region specified in the locality field.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+ 
+ 
+
+<h4>3.7 ManagementStatus </h4>
+ <h5>3.7.1 ManagementStatus Concepts </h5>
+ <p>ManagementStatus represents the type of management activities involved with a species in a specified area. Multiple ManagementStatuses should be provided for if multiple activities are engaged in the same time period. </p>
+ <p>ManagementStatuses are required to support the following general Concepts:</p>
+ <ul>
+   <li> Taxon: At least a scientific name</li>
+   <li>Location: At least one code or name, coordinates do not apply to SpeciesStatus</li>
+   <li>Modified </li>
+   <li>ValidDate</li>
+ </ul>
+ <p>ManagementStatuses  support the following additional Concepts: </p>
+ 
+              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Source
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Required
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Type
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Values
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=88&CallingPage=ProtocolSpecification.php'>action</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Yes
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Prevention, Eradication, Control, Containment, Mitigation, Interception, None
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  The action taken by management 
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=99&CallingPage=ProtocolSpecification.php'>outcome</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Successful, Failed, Unknown, Unconfirmed success, Unconfirmed failure
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  The outcome of the action taken if the status is completed.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  <a href='Concept_Info.php?ConceptID=89&CallingPage=ProtocolSpecification.php'>status</a>
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  GISIN
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Enumerated
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  Proposed, Executing, Completed, Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='Left' valign='Center' class='TableData_Cell' >
+                  The current status of the specified action 
+                  </td>
+                </tr>
+              </table></div>
+      <SCRIPT LANGUAGE="JavaScript">
+      
+        function DoNew(ModelID,CallingPage)
+          {
+            var CallingPage=escape("Concept_Table.php");
+            
+            window.location="Concept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+          }
+      
+        function DoNew_ModelToConcept(ModelID,CallingPage)
+          {
+          window.location="ModelToConcept_Edit.php"+
+              "?TakeAction=New"+
+              "&ModelID="+ModelID+
+            "&CallingPage="+CallingPage;
+          }
+      
+          function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
+        {
+          window.location="ModelToConcept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ModelToConceptID="+ModelToConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+          function DoEdit(ConceptID,CallingPage)
+        {
+          window.location="Concept_Edit.php"+
+            "?TakeAction=Edit"+
+            "&ConceptID="+ConceptID+
+            "&CallingPage="+CallingPage;
+        }
+      
+        function DoDelete(ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete the concept?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=Delete"+
+              "&ConceptID="+ConceptID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+        function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
+          {
+            if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
+            {
+            window.location="Concept_Edit.php"+
+              "?TakeAction=DeleteREL"+
+              "&ConceptID="+ConceptID+
+              "&ModelID="+ModelID+
+              "&CallingPage="+CallingPage;
+            }
+          }
+      
+      </SCRIPT>
+      <p><strong>action Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Containment
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Measures taken to keep a species within a defined area
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Control
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Measures taken to reduce a species’ biomass
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Eradication
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Actions taken that eliminate all occurrences of a species
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Interception
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Detection of a species at a border and prevention of its entering an area.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Mitigation
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Actions taken to reduce the harmful effects of a species
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  None
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  A decision to take no action has been made.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Prevention
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Measures taken to stop a species from entering an area.
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>outcome Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Failed
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  The Action Failed; this should only be selected if the Status of the Action is 'Completed'.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Successful
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  The Action was successful; this should only be selected if the Status of the Action is 'Completed'.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unconfirmed failure
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  The action is believed to have failed, but requires time to confirm the outcome.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unconfirmed success
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  The action is believed to be successful, but requires time for confirmation.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  The Outcome of the management Action is unknown.
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+<p><strong>status Values </strong></p>              <div style='width:100%;'><table summary='' cellpadding='1' cellspacing='1' width='100%' class='TableData_Table' align='Center' valign='Top'>
+                <tr>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Name
+                  </th>
+                  <th class='TableHeading' colspan='1' align='Center' valign='Bottom' >
+                      Description
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Completed
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Prevention projects are usually ongoing, completed implies no further control effort.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Executing
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Includes e.g. prevention systems in place and/or public education
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Proposed
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Includes even the suggestion that the activity would be a good idea, because this indicates concern about the organism
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  Unknown
+                  </td>
+                  <td colspan='1' rowspan='1' align='left' valign='Center' class='TableData_Cell' >
+                  &nbsp;
+                  </td>
+                </tr>
+              </table></div>
+              <p></p>
+ 
+ 
+
+
+
+<h2>References</h2>
+ <p>Carlton, J.T. and G.M. Ruiz. 2002. Principles of Vector Science and Integrated Vector Management. In Mooney, H. et al. (eds.) Best Practices for the Prevention and Management of Alien Invasive Species. Island Press</p>
+ <p>IUCN 2000. Guidelines for the prevention of biodiversity loss due to biological invasion. IUCN &ndash; The World Conservation Union, Gland, Switzerland</p>
+ <h2>Appendix A - Issues</h2>
+ <p>
+ See the protocol issues in the technical documentation</p>
+<h2>Appendix B - Changes</h2>
+<h4>18-May-2007</h4>
+<ul>
+  <li>Added values for DispersalStatus Cause and Vector </li>
+</ul>
+<h4>20-May-2007</h4>
+<ul>
+  <li>Added ImpactStatus, DispersalStatus, and ManagementStatus</li>
+  <li>Added LanguageCode to SpeciesResourceURL </li>
+</ul>
+<h4>29-May-2007</h4>
+<ul>
+  <li>Added acknowledgements</li>
+  <li>Added additional definitions to values  </li>
+  <li>Added issue 6 </li>
+</ul>
+<h4>12-August-2009</h4>
+<ul>
+  <li>Updated concepts for ImpactStatus, DispersalStatus, and ManagementStatus based on GISIN3 results</li>
+  <li>Added GloballyUniqueIdentifier to all data models based on GISIN3 resutls</li>
+  <li>Updated other areas of data models based on resolved issues from GISIN3</li>
+</ul>
+<h4>15-December-2011</h4>
+<ul>
+  <li>Separated out the GISIN protocol from the web service documentation</li>
+</ul>
+<p></p>
+<p>
+  <img src='/cwis438/Images/TransparentSpacer.gif' width='100%' height='1'></img>     </td>
+    </tr>
+    <tr>
+        <td id='FooterLeft'><img src='/cwis438/Images/TransparentSpacer.gif' width='130' height='1'></img></td>
+        <td id='FooterNavigation'>
+          <div class='FooterLogosContainer'>
+            <div class='logos'>
+<img src='http://ibis.colostate.edu/WebContent/WS/GISIN/images/Logos.png' /></div>          </div>
+          <br>
+          <a href='' id='FooterLink' target=''></a>The GISIN web site is hosted at Colorado State University's</a>
+          <a href='' id='FooterLink' target=''></a>Natural Resource Ecology Laboratory<br/></a>
+          <a href='http://www.gisin.org' id='FooterLink' target=''>http://www.gisin.org<br><br></a>
+          <a href='/DH.php?WC=/WS/GISIN/home.html&WebSiteID=4' id='FooterLink' target='_self'>Home</a>
+           | 
+          <a href='/DH.php?WC=/WS/GISIN/about.html&WebSiteID=4' id='FooterLink' target='_self'>About</a>
+           | 
+          <a href='/DH.php?WC=/WS/GISIN/Directory.html&WebSiteID=4' id='FooterLink' target='_self'>Directory</a>
+           | 
+          <a href='/DH.php?WC=/WS/GISIN/BrowseInformation.html&WebSiteID=4' id='FooterLink' target='_self'>Browse Information</a>
+           | 
+          <a href='/cwis438/websites/GISINDirectory/Search.php?WebSiteID=4' id='FooterLink' target='_self'>Get Data</a>
+           | 
+          <a href='/cwis438/websites/GISINDirectory/ShareData.php?WebSiteID=4' id='FooterLink' target='_self'>Share Data</a>
+           | 
+          <a href='/DH.php?WC=/WS/GISIN/contact.html&WebSiteID=4' id='FooterLink' target='_self'>Contact Us</a>
+           | 
+          <br>
+          <br>
+        </td>
+    </tr>     <tr>
+        <td id='IBISFooter' colspan='2'>
+<div>       <span style='float:left;'>&nbsp; <a href='http://ibis.colostate.edu/cwis438/websites/IBIS/Home.php?WebSiteID=10' class='IBISFooterLink' target='NewWindow'>An IBIS website</a></span>
+        <span style='float:right;'>Updated 12/1/2016 &nbsp;</span>
+</div>      </td>
+      </tr>
+  </table>
+</div></body>
+</html>
+<SCRIPT TYPE='text/javascript' LANGUAGE='JavaScript' SRC='/cwis438/includes/BrowserUtil.js'></SCRIPT>
+</p>
