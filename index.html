@@ -188,68 +188,7 @@
       </tr>
     </table>
   </div>
-  <script language="JavaScript">
-  <![CDATA[
 
-  function DoNew(ModelID,CallingPage)
-  {
-    var CallingPage=escape("Concept_Table.php");
-    
-    window.location="Concept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-  }
-
-  function DoNew_ModelToConcept(ModelID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ModelToConceptID="+ModelToConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit(ConceptID,CallingPage)
-  {
-  window.location="Concept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ConceptID="+ConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoDelete(ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete the concept?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=Delete"+
-      "&ConceptID="+ConceptID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=DeleteREL"+
-      "&ConceptID="+ConceptID+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  ]]>
-  </script>
   <p>Note: If a provider does not support a particular Concept it should simply not return that Concept as an element of the record.</p>
   <h5><a name='4.4.1.1'></a>3.1.1 Dates<a href="http://www.loc.gov/standards/iso639-2/"></a></h5>
   <p>Dates are represented as documented in International Standard ISO 8601. This format is YYYY-MM-DD where YYYY is the decimal year in the Gregorian calendar. See <a href='http://www.cl.cam.ac.uk/~mgk25/iso-time.html'>Markus's</a> web page for a quick summary. At least a year is required, month and day are preferred as well.</p>
@@ -472,68 +411,7 @@
       </tr>
     </table>
   </div>
-  <script language="JavaScript">
-  <![CDATA[
 
-  function DoNew(ModelID,CallingPage)
-  {
-    var CallingPage=escape("Concept_Table.php");
-    
-    window.location="Concept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-  }
-
-  function DoNew_ModelToConcept(ModelID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ModelToConceptID="+ModelToConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit(ConceptID,CallingPage)
-  {
-  window.location="Concept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ConceptID="+ConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoDelete(ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete the concept?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=Delete"+
-      "&ConceptID="+ConceptID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=DeleteREL"+
-      "&ConceptID="+ConceptID+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  ]]>
-  </script>
   <p><strong>abundance Values</strong></p>
   <div style='width:100%;'>
     <table align='center' cellpadding='1' cellspacing='1' class='TableData_Table' summary='' width='100%'>
@@ -835,68 +713,7 @@
       </tr>
     </table>
   </div>
-  <script language="JavaScript">
-  <![CDATA[
 
-  function DoNew(ModelID,CallingPage)
-  {
-    var CallingPage=escape("Concept_Table.php");
-    
-    window.location="Concept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-  }
-
-  function DoNew_ModelToConcept(ModelID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ModelToConceptID="+ModelToConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit(ConceptID,CallingPage)
-  {
-  window.location="Concept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ConceptID="+ConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoDelete(ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete the concept?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=Delete"+
-      "&ConceptID="+ConceptID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=DeleteREL"+
-      "&ConceptID="+ConceptID+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  ]]>
-  </script>
   <p><strong>resourceType Values</strong></p>
   <div style='width:100%;'>
     <table align='center' cellpadding='1' cellspacing='1' class='TableData_Table' summary='' width='100%'>
@@ -1033,68 +850,7 @@
       </tr>
     </table>
   </div>
-  <script language="JavaScript">
-  <![CDATA[
 
-  function DoNew(ModelID,CallingPage)
-  {
-    var CallingPage=escape("Concept_Table.php");
-    
-    window.location="Concept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-  }
-
-  function DoNew_ModelToConcept(ModelID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ModelToConceptID="+ModelToConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit(ConceptID,CallingPage)
-  {
-  window.location="Concept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ConceptID="+ConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoDelete(ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete the concept?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=Delete"+
-      "&ConceptID="+ConceptID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=DeleteREL"+
-      "&ConceptID="+ConceptID+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  ]]>
-  </script>
   <p><strong>collectionDatePrecision Values</strong></p>
   <div style='width:100%;'>
     <table align='center' cellpadding='1' cellspacing='1' class='TableData_Table' summary='' width='100%'>
@@ -1238,68 +994,7 @@
       </tr>
     </table>
   </div>
-  <script language="JavaScript">
-  <![CDATA[
 
-  function DoNew(ModelID,CallingPage)
-  {
-    var CallingPage=escape("Concept_Table.php");
-    
-    window.location="Concept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-  }
-
-  function DoNew_ModelToConcept(ModelID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ModelToConceptID="+ModelToConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit(ConceptID,CallingPage)
-  {
-  window.location="Concept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ConceptID="+ConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoDelete(ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete the concept?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=Delete"+
-      "&ConceptID="+ConceptID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=DeleteREL"+
-      "&ConceptID="+ConceptID+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  ]]>
-  </script>
   <p><strong>biome Values</strong></p>
   <div style='width:100%;'>
     <table align='center' cellpadding='1' cellspacing='1' class='TableData_Table' summary='' width='100%'>
@@ -1536,68 +1231,7 @@
       </tr>
     </table>
   </div>
-  <script language="JavaScript">
-  <![CDATA[
 
-  function DoNew(ModelID,CallingPage)
-  {
-    var CallingPage=escape("Concept_Table.php");
-    
-    window.location="Concept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-  }
-
-  function DoNew_ModelToConcept(ModelID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ModelToConceptID="+ModelToConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit(ConceptID,CallingPage)
-  {
-  window.location="Concept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ConceptID="+ConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoDelete(ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete the concept?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=Delete"+
-      "&ConceptID="+ConceptID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=DeleteREL"+
-      "&ConceptID="+ConceptID+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  ]]>
-  </script>
   <p><strong>dateOfIntroductionPrecision Values</strong></p>
   <div style='width:100%;'>
     <table align='center' cellpadding='1' cellspacing='1' class='TableData_Table' summary='' width='100%'>
@@ -1773,68 +1407,7 @@
       </tr>
     </table>
   </div>
-  <script language="JavaScript">
-  <![CDATA[
 
-  function DoNew(ModelID,CallingPage)
-  {
-    var CallingPage=escape("Concept_Table.php");
-    
-    window.location="Concept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-  }
-
-  function DoNew_ModelToConcept(ModelID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-      "?TakeAction=New"+
-      "&ModelID="+ModelID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit_ModelToConcept(ModelToConceptID,CallingPage)
-  {
-  window.location="ModelToConcept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ModelToConceptID="+ModelToConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoEdit(ConceptID,CallingPage)
-  {
-  window.location="Concept_Edit.php"+
-    "?TakeAction=Edit"+
-    "&ConceptID="+ConceptID+
-    "&CallingPage="+CallingPage;
-  }
-
-  function DoDelete(ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete the concept?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=Delete"+
-      "&ConceptID="+ConceptID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  function DoDelete_ModelToConcept(ModelID,ConceptID,CallingPage)
-  {
-    if (window.confirm("Are you REALLY sure you want to delete this concept from this Model?"))
-    {
-    window.location="Concept_Edit.php"+
-      "?TakeAction=DeleteREL"+
-      "&ConceptID="+ConceptID+
-      "&ModelID="+ModelID+
-      "&CallingPage="+CallingPage;
-    }
-  }
-
-  ]]>
-  </script>
   <p><strong>action Values</strong></p>
   <div style='width:100%;'>
     <table align='center' cellpadding='1' cellspacing='1' class='TableData_Table' summary='' width='100%'>
